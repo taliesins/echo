@@ -23,9 +23,9 @@ func main() {
 	var port int
 	var ssl bool
 
-	flag.StringVar(&host, "host", "0.0.0.0", "domain or IP of echo server")
-	flag.IntVar(&port, "port", 5980, "port to listen on")
-	flag.BoolVar(&ssl, "ssl", false, "true if ssl listener needed")
+	flag.StringVar(&host, "host", "echo.localhost", "domain or IP of echo server")
+	flag.IntVar(&port, "port", 443, "port to listen on")
+	flag.BoolVar(&ssl, "ssl", true, "true if ssl listener needed")
 
 	flag.Parse()
 

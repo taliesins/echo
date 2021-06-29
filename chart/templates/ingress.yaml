@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: {{ include "echoserver.fullname" . }}-route-tcp
+
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: HostSNI(`echo.localhost`)
+    services:
+    - name: {{ include "echoserver.fullname" . }}
+      port: {{ .Values.service.port }}
+  tls:
+    passthrough: true
